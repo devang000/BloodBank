@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Conversation>
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Incoming Message</h5>
+            <h6 class="card-subtitle mb-2 text-muted">From @item.ApplierName</h6>
+            <p class="card-text">@item.Messages.Count messages.</p>
+            <a asp-controller="Conversations" asp-action="ShowDialogue" asp-route-applierName="@item.ApplierName" class="btn btn-success">Go to Message</a>
+        </div>
+    </div>
+}
